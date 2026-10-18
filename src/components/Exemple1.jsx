@@ -172,4 +172,108 @@ const Home = () => {
     );
 };
 
+export const Event = () => {
+
+    const handleClick = () => { 
+        console.log("The link was clicked.");
+    };
+
+    return (
+        <a href="/" onClick={handleClick}>
+            Click me
+        </a>
+    );
+};
+
+
+export const EventHandle = () => {
+
+    const handleClick = (e) => { // the e parameter represents the event object that is passed to the event handler when the event occurs.
+        e.preventDefault();
+        // This line prevents the default behavior of the event, which in this case is 
+        // navigating to the URL specified in the href attribute of the anchor tag. 
+        // By calling e.preventDefault(), we can stop the browser from performing its 
+        // default action and instead execute our custom logic defined in the event handler.
+        console.log("The link was clicked.");
+    };
+
+    return (
+        <a href="/" onClick={handleClick}>
+            Click me
+        </a>
+    );
+};
+
+export const Counter = () => {
+    let count = 0;
+
+    const increase = () => {
+        count = count + 1;
+        console.log(count);
+    };
+
+    // useEffect(function arrow , array)
+    
+    useEffect(() => {
+        console.log("Hello");
+        return () => {
+            console.log("Goodbye");
+        }
+    }, []); // the array is used to specify the dependencies of the effect.
+
+    return (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={increase}>Increase</button>
+        </div>
+    );
+};
+
+import { useState } from "react";
+
+export const CounterState = () => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            console.log("Timer...");
+        }, 1000);
+    }, []);
+
+    const increase = () => {
+        setCount(count + 1);
+        console.log(count); //why this line show the previous value of count instead of the updated value?
+    };
+
+    return (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={increase}>Increase</button>
+        </div>
+    );
+};
+
+import { useEffect } from "react";
+
+export const CounterStateEffect = () => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        console.log("Updated count:", count);
+    }, [count]);
+
+    const increase = () => {
+        setCount(count + 1);
+    };
+
+    return (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={increase}>Increase</button>
+        </div>
+    );
+};
+
+//Exemple9
+
 export default Home;
