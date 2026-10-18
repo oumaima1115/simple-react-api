@@ -233,6 +233,15 @@ import { useState } from "react";
 
 export const CounterState = () => {
     const [count, setCount] = useState(0);
+    const [color, setColor] = useState("red")
+    const [name , setName] = useState("john")
+
+    // useEffect(function arrow , array)
+
+    useEffect(() => {
+        console.log("hello")
+        //load data
+    })
 
     useEffect(() => {
         const timer = setInterval(() => {

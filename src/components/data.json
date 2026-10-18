@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "image": "https://imagedelivery.net/69BeqhIDk7dErfVysWBlsQ/ebec97cf-c371-4902-030e-db9269445c00/public",
+        "brand": "BMW",
+        "color": "Red",
+        "isElectric": true
+    },
+    {
+        "id": 2,
+        "image": "https://catalogue.automobile.tn/big/2026/09/47224.webp?t=1",
+        "brand": "Mercedes",
+        "color": "White",
+        "isElectric": false
+    }
+]

@@ -8,7 +8,7 @@ import './App.css' //activation
 // import { Event } from './components/Exemple1.jsx'
 // import { EventHandle } from './components/Exemple1.jsx'
 // import CarManagment from './components/CarManagement.jsx'
-import CarManage from './components/CarManage.jsx'
+import CarManagment from './components/CarManage.jsx'
 
 function App() {
   //Partie 1: logique + functions + consoles
@@ -24,8 +24,7 @@ function App() {
       {/* <CounterState/> */}
       {/* <CounterStateEffect/> */}
       {/* <Car/> */}
-      {/* <CarManagment /> */}
-      <CarManage/>
+      <CarManagment />
     </>
   )
 }
