@@ -30,6 +30,13 @@ function CarCard(props) {
             </button>
 
             <button
+                className="btn btn-secondary mb-2"
+                onClick={() => props.update(props.car)}
+            >
+                Change Car details
+            </button>
+
+            <button
                 className="btn btn-danger"
                 onClick={() => props.deleteCar(props.id)}
             >
@@ -99,7 +106,7 @@ export default function CarManagment() {
             if (car.id === id) {
                 return {
                     ...car,
-                    isElectric: !car.isElectric,
+                    isElectric: !car.isElectric
                 };
             }
 
@@ -109,6 +116,25 @@ export default function CarManagment() {
         setCars(updatedCars);
     };
 
+    const [selectedCar, setSelectedCar] = useState()
+
+    const handleUpdateClick = (car) => {
+        setSelectedCar({ ...car });
+    }
+
+    useEffect(() => {
+        console.log("selected car is: ", selectedCar)
+    }, [selectedCar])
+
+    const handleUpdate = (id, updatedCar) => {
+        setCars((previousCars) =>
+            previousCars.map((car) =>
+                car.id === id ? { ...car, ...updatedCar } : car
+            )
+        );
+
+        setSelectedCar(null);
+    };
 
     return (
         <div className="container mt-5">
@@ -152,10 +178,111 @@ export default function CarManagment() {
                     isElectric={car.isElectric}
                     changeEngine={updateEngine}
                     deleteCar={deleteCar}
+                    update={handleUpdateClick}
+                    car={car}
                 />
             ))}
+
+            //form
+
+            {selectedCar && (
+                <FormCar
+                    id={selectedCar.id}
+                    car={selectedCar}
+                    onUpdate={handleUpdate}
+                />
+            )}
 
         </div>
     );
 }
 
+const FormCar = ({ id, car, onUpdate }) => {
+
+    const [form, setForm] = useState({
+        brand: car.brand,
+        color: car.color,
+        isElectric: car.isElectric
+    })
+
+    function handleChange(event) {
+        console.log("event :", event.target);
+
+        const { name, value } = event.target;
+
+        setForm((previousForm) => ({
+            ...previousForm,
+            [name]: value,
+        }));
+    }
+
+    const handleReset = () => {
+        setForm({
+            brand: "",
+            color: "",
+            isElectric: false
+        })
+    }
+
+    useEffect(() => {
+        console.log("form : ", form)
+    }, [form])
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        onUpdate(
+            id,
+            {
+                brand: form.brand,
+                color: form.color,
+                isElectric: form.isElectric
+            }
+        )
+    }
+
+    return (
+        <>
+            <form>
+                <label> Brand </label> <br />
+                <input
+                    type="text"
+                    name="brand"
+                    value={form.brand}
+                    onChange={handleChange}
+                /><br />
+                <label> Color </label><br />
+                <input
+                    type="text"
+                    name="color"
+                    value={form.color}
+                    onChange={handleChange}
+                /><br />
+                <label> Electric </label><br />
+                <input
+                    type="button"
+                    value={form.isElectric ? "Electric" : "Diesel"}
+                    onClick={() =>
+                        setForm((previousForm) => ({
+                            ...previousForm,
+                            isElectric: !previousForm.isElectric,
+                        }))
+                    }
+                /><br />
+                <input
+                    type="button"
+                    value="Reset"
+                    onClick={handleReset}
+                /><br />
+
+                <input
+                    type="submit"
+                    value="Submit"
+                    onClick={handleSubmit}
+                />
+            </form>
+        </>
+    )
+}
+//CarManagment: selectedCar + logique
+//carCard : button
+//formCar: formulaire => call the logic
