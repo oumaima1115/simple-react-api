@@ -8,7 +8,6 @@ const Header = () => {
     );
 };
 
-
 const Home = () => {
     return (
         <>
@@ -177,7 +176,7 @@ export const Event = () => {
     const handleClick = () => { 
         console.log("The link was clicked.");
     };
-
+ 
     return (
         <a href="/" onClick={handleClick}>
             Click me

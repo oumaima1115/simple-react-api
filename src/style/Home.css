@@ -1,0 +1,75 @@
+.home {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home h1 {
+  margin: 0 0 15px;
+  color: #111827;
+  font-size: 32px;
+}
+
+.home p {
+  color: #4b5563;
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+/* Navigation link */
+.home nav {
+  margin-bottom: 30px;
+}
+
+.home nav a {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.home nav a:hover {
+  background-color: #e5e7eb;
+}
+
+/* Login link styled as a button */
+.login-button {
+  display: inline-block;
+  padding: 12px 22px;
+  background-color: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Logout button */
+.home button {
+  padding: 12px 22px;
+  background-color: #dc2626;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.home button:hover {
+  background-color: #b91c1c;
+}

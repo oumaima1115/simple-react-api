@@ -1,0 +1,25 @@
+.not-found {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.not-found h1 {
+  font-size: 40px;
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+.back-home-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.back-home-button:hover {
+  background-color: #1d4ed8;
+}
