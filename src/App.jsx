@@ -21,6 +21,7 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import ProductDetails from "./Pages/ProductDetails";
 import NotFound from "./Pages/NotFound";
+import SignUp from "./Pages/SignUp"
 
 function App() {
   //Partie 1: logique + functions + consoles
@@ -79,6 +80,7 @@ function App() {
             <Route path="profile" element={<Profile />} />
             <Route path="settings" element={<Settings />} />
           </Route>
+          <Route path="/signup" element={<SignUp/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
