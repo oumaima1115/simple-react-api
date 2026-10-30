@@ -2,37 +2,46 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../style/Login.css";
+import axios from "axios";
 
 function Login({ setIsAuth }) {
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
-
+  const [formData, setFormData] = useState(
+    {
+      email: "",
+      password: ""
+    }
+  )
   const navigate = useNavigate();
 
-  function handleSubmit(event) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!email.includes("@")) {
-      setError("Veuillez entrer un email valide.");
-      setSuccess(false);
-      return;
-    }
-
-    if (password.length < 6) {
-      setError("Le mot de passe doit contenir au moins 6 caractères.");
-      setSuccess(false);
-      return;
-    }
+    const response = await axios.post(
+      `${BASE_URL}/users/signin`,
+      formData
+    )
+    localStorage.setItem("token", response.data.token)
 
     setError("");
     setSuccess(true);
 
 
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
+    // localStorage.setItem("email", email);
+
     // localStorage.setItem(
     //   "user",
     //   JSON.stringify({ id: 1, name: "Oumaima", email: "oumaima@example.com" })
@@ -54,9 +63,10 @@ function Login({ setIsAuth }) {
         <label htmlFor="email">Email</label>
         <input
           id="email"
+          name="email"
           type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          value={formData.email}
+          onChange={handleChange}
           placeholder="exemple@email.com"
           required
         />
@@ -64,9 +74,10 @@ function Login({ setIsAuth }) {
         <label htmlFor="password">Mot de passe</label>
         <input
           id="password"
+          name="password"
           type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          value={formData.password}
+          onChange={handleChange}
           placeholder="Votre mot de passe"
           required
         />

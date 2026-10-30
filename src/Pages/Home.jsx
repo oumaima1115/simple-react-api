@@ -5,13 +5,15 @@ function Home(props) {
   const { isAuth, setIsAuth } = props;
   const Logout = () => {
     setIsAuth(false)
-    localStorage.removeItem("email");
-    localStorage.removeItem("password");
+    localStorage.removeItem("token");
   }
+  
+  const token = localStorage.getItem("token")
+  console.log("token:", token)
 
   return (
     <main className="home">
-      <h1>Bienvenue sur mon site</h1>
+      <h1>Bienvenue sur mon site {token}</h1>
 
       <p>Ceci est la page d’accueil.</p>
 
