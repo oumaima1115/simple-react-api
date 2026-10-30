@@ -75,6 +75,10 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="profile" element={<Profile />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

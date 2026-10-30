@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../style/Login.css";
 
 function Login({ setIsAuth }) {
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -29,6 +29,14 @@ function Login({ setIsAuth }) {
 
     setError("");
     setSuccess(true);
+
+
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+    // localStorage.setItem(
+    //   "user",
+    //   JSON.stringify({ id: 1, name: "Oumaima", email: "oumaima@example.com" })
+    // );
 
     // Simulation d'une connexion réussie
     setIsAuth(true);

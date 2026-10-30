@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 
 function Home(props) {
   const { isAuth, setIsAuth } = props;
+  const Logout = () => {
+    setIsAuth(false)
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+  }
 
   return (
     <main className="home">
@@ -15,7 +20,7 @@ function Home(props) {
       </nav>
 
       {isAuth ? (
-        <button onClick={() => setIsAuth(false)}>
+        <button onClick={Logout}>
           LogOut
         </button>
       ) : (

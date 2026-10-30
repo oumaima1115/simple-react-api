@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
-  const navigate = useNavigate();
+  const email = localStorage.getItem("email");
+  console.log("email:", email);
 
   return (
     <div>
@@ -10,7 +10,7 @@ export default function Profile() {
 
       <ul>
         <li>Nom</li>
-        <li>Email</li>
+        <li>Email: {email}</li>
       </ul>
 
       <form>
