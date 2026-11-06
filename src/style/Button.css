@@ -1,0 +1,15 @@
+.button-container{
+    border: 1px dashed #BEC1C2;
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #EEF6FF;
+}
+button{
+    color: blue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

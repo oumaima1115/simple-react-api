@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../style/Signup.css";
 import axios from "axios"
+import Button from "./Button";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -10,7 +11,8 @@ function SignUp() {
     name: "",
     email: "",
     phone: "",
-    password: ""
+    password: "",
+    image: "",
   });
   const [user, setUser] = useState({})
   const [error, setError] = useState("");
@@ -24,10 +26,31 @@ function SignUp() {
     }));
   };
 
+
+  function handleImageChange(event) {
+    const  file  = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setFormData((prev) => ({
+        ...prev,
+        image: reader.result
+      }));
+    };
+
+    reader.onerror = () => {
+      console.error("Could not read the selected image");
+    };
+
+    reader.readAsDataURL(file);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('formData:', formData);
+    // console.log('formData:', formData);
 
     //Fetch Data 
     // const response = await fetch("http://localhost:3000/api/users/signup", {
@@ -37,12 +60,12 @@ function SignUp() {
     //   },
     //   body: JSON.stringify(formData),
     // });
-    
+
     // const data = await response.json();
     // setUser(data);
 
     //axios Data
-    const response = axios.post(
+    const response = await axios.post(
       "http://localhost:3000/api/users/signup",
       formData
     );
@@ -53,9 +76,14 @@ function SignUp() {
     navigate("/login");
   };
 
-  useEffect(() => {
-    console.log(user);
-  }, [user])
+  // useEffect(() => {
+  //   console.log(user);
+  // }, [user])
+
+
+  // useEffect(() => {
+  //   console.log("formData:", formData);
+  // }, [formData]);
 
   return (
     <div className="signup-container">
@@ -113,6 +141,10 @@ function SignUp() {
             value={formData.password}
             onChange={handleChange}
           />
+        </div>
+
+        <div className="form-group">
+          <Button type="button" text="Upload Image" onChange={handleImageChange} formData={formData} />
         </div>
 
         <button type="submit" className="signup-button">

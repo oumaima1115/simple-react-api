@@ -35,10 +35,16 @@ function Login({ setIsAuth }) {
       formData
     )
     localStorage.setItem("token", response.data.token)
+    localStorage.setItem("userId", `6aedbc5d08e75be953663ea3`)
 
     setError("");
     setSuccess(true);
 
+    // Simulation d'une connexion réussie
+    setIsAuth(true);
+
+    // Redirection après connexion
+    navigate("/");
 
     // localStorage.setItem("email", email);
 
@@ -47,11 +53,6 @@ function Login({ setIsAuth }) {
     //   JSON.stringify({ id: 1, name: "Oumaima", email: "oumaima@example.com" })
     // );
 
-    // Simulation d'une connexion réussie
-    setIsAuth(true);
-
-    // Redirection après connexion
-    navigate("/");
 
   }
 
