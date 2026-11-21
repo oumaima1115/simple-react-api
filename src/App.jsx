@@ -18,7 +18,7 @@ import PrivateRoute from "./PrivateRoute"
 import { useState } from "react";
 import Dashboard from "./Pages/Dashboard"
 import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
+import Settings from "./Pages/Settings";
 import ProductDetails from "./Pages/ProductDetails";
 import NotFound from "./Pages/NotFound";
 import SignUp from "./Pages/SignUp"
