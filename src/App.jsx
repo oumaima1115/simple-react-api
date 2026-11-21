@@ -12,12 +12,12 @@ import './App.css' //activation
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import Login from "./pages/Login";
-import Products from "./pages/Products";
+import Login from "./Pages/Login";
+import Products from "./Pages/Products";
 import PrivateRoute from "./PrivateRoute"
 import { useState } from "react";
 import Dashboard from "./Pages/Dashboard"
-import Profile from "./pages/Profile";
+import Profile from "./Pages/Profile";
 import Settings from "./Pages/Settings";
 import ProductDetails from "./Pages/ProductDetails";
 import NotFound from "./Pages/NotFound";
