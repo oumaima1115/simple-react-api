@@ -66,7 +66,7 @@ function SignUp() {
 
     //axios Data
     const response = await axios.post(
-      "http://localhost:3000/api/users/signup",
+      "https://restaurantbackend-x8cr.onrender.com/api/users/signup",
       formData
     );
 

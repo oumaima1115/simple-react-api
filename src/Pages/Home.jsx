@@ -40,7 +40,7 @@ function Home({ isAuth, setIsAuth }) {
 
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/users/${id}`
+          `https://restaurantbackend-x8cr.onrender.com/api/users/${id}`
         );
 
         if (!ignore) {

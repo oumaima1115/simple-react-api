@@ -11,7 +11,7 @@ import './App.css' //activation
 // import CarManagment from './components/CarManage.jsx'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./Pages/Home";
 import Login from "./pages/Login";
 import Products from "./pages/Products";
 import PrivateRoute from "./PrivateRoute"
